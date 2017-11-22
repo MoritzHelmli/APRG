@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html lang = "en">
+	<head>
+		<title>Hauptseite</title>
+	</head>
+	<body>
+		<% if( user !== "adm") { %>
+			<h2>Willkommen <%= user.firstname %> <%= user.lastname %>, du bist eingeloggt!</h2>
+		<% } else { %>
+			<h2>Willkommen Admin, du bist eingeloggt!</h2>
+			<a href="/administer">User verwalten</a>
+		<% } %>
+			
+        <a href="/logout">Abmelden</a>
+
+	</body>
+</html>

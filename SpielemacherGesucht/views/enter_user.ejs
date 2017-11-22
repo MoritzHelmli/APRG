@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>User manuell bearbeiten</title>
+	</head>
+	<body>
+		<h1>User manuell hinzufügen</h1>
+		<div>
+			<form action="/enternewusers" method="POST">
+				Vorname: <input type="text" name="firstname"> <br>
+				Nachname: <input type="text" name="lastname"> <br>
+				Passwort: <input type="text" name="password"> <br>		
+				E-Mail: <input type="text" name="email"> @haw-hamburg.de <br>
+				<button type="submit">Absenden</button>
+			</form>
+		</div>
+		<br>
+
+		<p>
+			<h1>User-Liste</h1>
+			<% if (typeof usersDb !== "undefined"){ %>			
+				<table>
+					<tr>
+						<td>Vorname, Nachname</td>
+						<td>E-Mail</td>
+						<td>User löschen</td>
+						<td>Passwort auf "000" setzen</td>
+					</tr>
+					<% for (let i = 0; i < usersDb.length; i++) { %>
+						<tr>
+							<td> <%= usersDb[i].firstname %> </td>
+							<td> <%= usersDb[i].lastname %> </td>
+							<td> <%= usersDb[i].email %> </td>
+							<td>                        
+								<form action="<%= '/delete/' + usersDb[i]._id %>" method="POST"> 
+								<button type="submit">Löschen</button>
+								</form>
+							</td>
+							<td>
+								<form action="<%= '/reset/' + usersDb[i]._id %>" method="POST"> 
+								<button type="submit">Passwort 000</button>
+								</form>
+							</td>
+						</tr>
+					<% } %> 
+				</table> 
+			<% } %>
+		</p>
+		
+		<b><a href="javascript:history.back()">Zurück</a></b>
+
+	</body>
+</html>

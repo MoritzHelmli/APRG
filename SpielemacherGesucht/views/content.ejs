@@ -5,9 +5,9 @@
 	</head>
 	<body>
 		<% if( user !== "adm") { %>
-			<h2>Willkommen <%= user.firstname %> <%= user.lastname %>, du bist eingeloggt!</h2>
+			<h2>Willkommen <%= user.firstname %> <%= user.lastname %>!</h2>
 		<% } else { %>
-			<h2>Willkommen Admin, du bist eingeloggt!</h2>
+			<h2>Willkommen Admin!</h2>
 			<a href="/administer">User verwalten</a>
 		<% } %>
 			

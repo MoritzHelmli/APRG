@@ -89,13 +89,15 @@ app.get('/content', function(request, response){
 	}
 });
 
-//PROFIL-PAGE
+//PROFIL-PAGE nach dem Tutorial von Ian Schoonover: https://www.youtube.com/watch?v=6ar77jZ_ajc
+//HIER LÄUFT NOCH IRGENDWAS FALSCH
 app.get('/profiles/:id', (request, response) => {
     const id = request.params.id;
     const o_id = new ObjectID(id);
 
     db.collection(DB_COLL_USERS).findOne({'_id': o_id}, (error, foundUser) => {
-        if(err){console.log(err);}
+        if(err){ return console.log(err);}
+        console.log(foundUser);
         response.render('/profile', {'user': foundUser});
     });
 });

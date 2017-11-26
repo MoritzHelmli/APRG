@@ -95,10 +95,10 @@ app.get('/profiles/:id', (request, response) => {
     const id = request.params.id;
     const o_id = new ObjectID(id);
 
-    db.collection(DB_COLL_USERS).findOne({'_id': o_id}, (error, foundUser) => {
+    db.collection(DB_COLL_USERS).findOne({'_id': o_id}, (err, foundUser) => {
         if(err){ return console.log(err);}
         console.log(foundUser);
-        response.render('/profile', {'user': foundUser});
+        response.render('profile', {'user': foundUser});
     });
 });
 

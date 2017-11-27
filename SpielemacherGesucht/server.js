@@ -115,9 +115,10 @@ app.post('/edit/:id', (request, response) => {
 		db.collection(DB_COLL_USERS).save(result, function(err, result){
 			if (err) return console.log(err);
 			console.log('saved to DB');
+			response.redirect('/profiles/'+result._id);
 		});
 	});
-	response.redirect('/profiles/:id');
+	
 });
 
 

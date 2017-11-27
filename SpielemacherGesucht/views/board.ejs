@@ -6,11 +6,7 @@
 	<body>
 		<% if (typeof entries !== "undefined"){ %>
 		<table>
-			<% console.log(entries); %>
-			<% console.log(entries[0]); %>
-
 			<% for (let i = 0; i < entries.length; i++) { %>
-				<% console.log(entries[i]); %>
 				<tr>
 					<td> <%= entries[i].searchObject %></td>
 					<td> <%= entries[i].mainText %></td>

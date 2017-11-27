@@ -181,6 +181,60 @@ app.post('/reset/:id', (request, response) => {
     response.redirect('/administer');
 });
 
+
+//GET: Schwarzes Brett
+app.get('/board', function(request, response){
+	if (request.session['authenticated'] == true){
+
+		 db.collection(DB_COLL_ENTRIES).find().toArray(function(err, result){
+			response.render('board', {'entries': result, 'user': request.session['user']});;
+
+		});
+	}
+	else{
+		response.redirect('/');
+	}
+});
+
+//POST: Anfrage Hinzufügen
+app.post('/enternewentry', function(request, response){
+    const newSearchObject = request.body['searchObject'];
+    const newMainText = request.body['mainText'];
+	//const newCreator = request.body['user']
+    //const newCreator = der Anfragenersteller;
+
+    const document = {
+        'searchObject': newSearchObject,
+        'mainText': newMainText,
+       // 'creator' : newCreator//austesten
+        //'creator': der Anfragenersteller,
+    }
+
+    db.collection(DB_COLL_ENTRIES).save(document, function(err, result){
+        if (err) return console.log(err);
+
+        console.log('saved to DB');
+
+    });
+
+    db.collection(DB_COLL_ENTRIES).find().toArray(function(err, result){
+     response.render('board', {'entries': result, 'user': request.session['user']});
+
+   });    //response.render('board');
+});
+
+
+//Anfrage löschen
+app.post('/deleteentries/:id', (request, response) => {
+    const id = request.params.id;
+    const o_id = new ObjectID(id);
+
+    db.collection(DB_COLLECTION).remove({'_id': o_id}, (error, result) => {
+        response.redirect('/board');
+    });
+});
+
+
 //LOGOUT
 app.get('/logout', function(request, response){
 	delete request.session['authenticated'];

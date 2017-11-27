@@ -1,7 +1,7 @@
 {
   "name": "spielemacher_gesucht",
   "version": "1.0.0",
-  "description": "Login",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -13,7 +13,7 @@
     "url": "git+https://github.com/MoritzJakobi/APRG.git"
   },
   "keywords": [
-    "Login"
+    ""
   ],
   "author": "M Jakobi",
   "license": "ISC",

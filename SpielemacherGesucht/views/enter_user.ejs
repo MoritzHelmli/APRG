@@ -29,7 +29,7 @@
 					</tr>
 					<% for (let i = 0; i < usersDb.length; i++) { %>
 						<tr>
-							<td> <a href = "<% '/profiles/' + usersDb[i]._id %>"> <%= usersDb[i].firstname %> </a> </td>
+							<td> <a href = "<%= '/profiles/' + usersDb[i]._id %>"> <%= usersDb[i].firstname %> </a> </td>
 							<td> <%= usersDb[i].lastname %> </td>
 							<td> <%= usersDb[i].email %> </td>
 							<td>                        

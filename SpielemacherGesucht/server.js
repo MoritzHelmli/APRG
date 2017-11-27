@@ -103,6 +103,24 @@ app.get('/profiles/:id', (request, response) => {
 });
 
 
+//das ist neu 
+//Profilbeschreibung ändern
+app.post('/edit/:id', (request, response) => {
+	const id = request.params.id;
+	const o_id = new ObjectID(id);
+
+	db.collection(DB_COLL_USERS).findOne({'_id': o_id},(error, result) =>{
+		result.description = request.body['description'] ;
+
+		db.collection(DB_COLL_USERS).save(result, function(err, result){
+			if (err) return console.log(err);
+			console.log('saved to DB');
+		});
+	});
+	response.redirect('/profiles/:id');
+});
+
+
 //ADMIN-PAGE
 app.get('/administer', function(request, response){
 	if (request.session['authenticated'] == true && request.session['user'] == 'adm'){

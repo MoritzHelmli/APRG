@@ -6,6 +6,11 @@
 	<body>
 			<h1><%= user.firstname %> <%= user.lastname %>'s Profil</h1>
 			<p>
+					Profilbild: <img src= <%= user.avatar %> alt="Smiley face" height="42" width="42">
+					<form action="<%= '/avatar/' + user._id %>" method="POST">
+					Link zum gewünschten Profilbild: <input type="text" name="avatarLink">
+					<button type="submit">Profilbild ändern</button>
+					</form>
 					Vorname: <%= user.firstname %><br/>
 					Nachname: <%= user.lastname %><br/>
 					E-Mail: <%= user.email %><br/>
@@ -17,15 +22,6 @@
 						<button type="submit">Beschreibung ändern</button>
 					</form>
 			</p>
-			 <!-- <div class ="row">
-            <div class ="col-md-4">
-                <img src="<%= user.avatar %>" alt="Profilbild">
-            </div>
-            <div class ="col-md-8">
-            </div>
-        </div> -->
-
 	<b><a href="javascript:history.back()">Zurück</a></b>
-
 	</body>
 </html>

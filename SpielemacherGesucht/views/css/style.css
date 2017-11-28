@@ -1,0 +1,263 @@
+/* --- APRG --- */
+
+/* ---------- SPEZIFISCHES ---------- */
+
+/* Titel */
+
+#titel {
+	padding-left: 100px;
+}
+
+#sprachen {
+	padding: 15px;
+	padding-right: 40px;
+	float: right;
+	color: #d9d9d9;
+	font-size: 8pt;
+}
+
+.logo {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.schwarzebuttons {
+	width: 95%;
+	height: 100px;
+	font-size: 20pt;
+}
+
+.anzeigebutton {
+	width: 100%;
+	height: 100px;
+}
+
+#nachoben {
+	color: #d9d9d9;
+}
+
+.personenbuttons {
+	width: 100%;
+}
+
+.personen {
+	text-align: center;
+}
+
+.profil {
+	padding-left: 100px;
+}
+
+.namefarbe {
+	color: #5ECD9B !important;
+}
+
+
+
+/* fonts */
+
+@font-face {
+	font-family: 'FooterFont';
+	src: url('../fonts/footer.ttf') format('truetype'); 
+}
+             
+@font-face { 
+	font-family: 'FooterFontS';
+	src: url('../fonts/footerS.ttf') format('truetype'); 
+}
+             
+@font-face { 
+	font-family: 'monster';
+	src: url:('../fonts/montserrat.ttf') format('truetype');
+}
+             
+             
+/* ---------- SPEZIFISCHES ---------- */
+
+
+/* NavBar */
+
+.uk-nav-header {
+	padding-bottom: 10px;
+}
+
+.font-nav {
+	color: #eeeeee !important;
+}
+
+.search-nav {
+	padding-top: 1px !important;
+	margin-top: 1px !important;
+}
+
+/* header */
+
+header {
+	margin-top: 15px;
+}
+
+/* footer */
+
+.copy {
+	display: table;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.foot {
+	margin-top: 50px;
+}
+
+footer {
+	padding-top: 50px;
+}
+
+.derfooter {
+	background: #222222 !important; 
+	padding-top: 50px; 
+	padding-bottom: 50px; 
+	padding-left: 10px; 
+	padding-right: 20px;
+}
+
+/* Um Tabellenlinien anzuzeigen */
+
+/* table, td {
+	font-family: Arial;
+	padding: 5px;
+	border-style: solid;
+	border-width: 1px;
+	border-collapse: collapse;
+} */
+
+/* Kontaktformular */
+
+#kontakt {
+	margin: 30px;
+	margin-bottom: 50px;
+}
+
+form {
+	padding: 30px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.cover {
+	height: 300px;
+}
+
+
+/* ---------- ALLGEMEINES ---------- */
+
+
+/* Abstände */
+
+.rechts60 {
+	padding-right: 60px;
+}
+
+.links100 {
+	padding-left: 100px;
+}
+
+
+
+
+pre {
+	padding-left: 1px;
+}
+
+.obenunten {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.oben {
+	padding-top: 20px;
+}
+
+.unten {
+	padding-botom: 20px;
+	margin-bottom: 20px;
+}
+
+.top {
+	padding-top: 30px;
+}
+
+.bot {
+	padding-bottom: 30px;
+}
+
+.super {
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.obersuper {
+	padding-top: 50px;
+	margin-top: 50px;
+}
+
+.untersuper {
+	padding-bottom: 50px;
+	margin-bottom: 50px;
+}
+
+.lefthandside {
+	padding-left: 10px;
+}
+
+.eng {
+	margin-left: 50px;
+	margin-right: 50px;
+}
+
+.all5 {
+	padding: 5px;
+}
+
+.20rechts {
+	padding-right: 20px !important;
+}
+
+/* Ausrichtung */
+
+.mittig {
+	text-align: center;
+}
+
+.left-float {
+	float: left;
+}
+
+.right-float {
+	float: right;
+}
+
+/* Schrift */
+
+.zwölf {
+	font-size: 12pt;
+}
+
+.vierzehn {
+	font-size: 14pt;
+}
+
+.important {
+	color: red;
+	font-size: 12pt;
+}
+
+.grau61 {
+	color: #616161 !important;
+}
+
+.Zitat {
+	font-family: Georgia;
+	color: #A6A6A6;
+	text-align: center;
+}

@@ -1,33 +1,317 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+
 <html>
+
 	<head>
-		<title>Schwarzes Brett</title>
+
+		<meta charset="utf-8" />
+		<meta name="author" content="Moritz, René, Emir, Basti" />
+		<script src="js/jquery.js"></script>
+		<script src="js/uikit.js"></script>
+		<script src="js/uikit-icons.js"></script>
+		<link href="css/uikit.css" rel="StyleSheet">
+		<link href="css/style.css" rel="StyleSheet">
+		<!-- <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico"> --> <!-- ICON EINFÜGEN -->
+		<title>Projekt: Spielemacher gesucht!</title>
+
 	</head>
+
 	<body>
-		<% if (typeof entries !== "undefined"){ %>
-		<table>
-			<% for (let i = 0; i < entries.length; i++) { %>
-				<tr>
-					<td> <%= entries[i].searchObject %></td>
-					<td> <%= entries[i].mainText %></td>
-					<% if( user == "adm"){ %>
-					<td>
-						<form action="<%= '/deleteentries/' + entries[i]._id %>" method="POST">
-						<button type="submit">Remove</button>
+
+		<!-- SPRACHEN VERLINKEN -->
+		<div class="uk-container uk-container-expand" style="background-color: #404040;">
+			<p id="sprachen">Deutsch | English</p>
+		</div>
+
+		<!-- Beginn der Navigation  -->
+
+		<nav class="uk-navbar-container" uk-navbar>
+
+			<div class="uk-navbar-left">
+
+				<ul class="uk-navbar-nav">
+
+					<li id="titel"><b>Projekt: Spielemacher gesucht!</b></li>
+
+				</ul>
+
+			</div>
+
+			<!-- ACTIVE UND HOVER FARBE ANPASSEN -->
+
+			<div class="uk-navbar-right">
+
+				<ul class="uk-navbar-nav rechts60">
+
+					<li><a href="/index">Home</a></li>
+					<li class="uk-active"><a href="/board">Schwarzes Brett</a></li>
+					<li><a href="kontakt.html">Kontakt</a></li>
+					<li><a href="personen.html">Personen</a></li>
+					<li><a href="/login"><b>Login</b></a></li>
+
+				</ul>
+
+			</div>
+
+		</nav>
+		
+        <!-- Ende der Navigation -->
+        
+        <!-- Beginn des Hauptteils -->
+
+        <div class="uk-grid">
+
+            <div class="uk-width-1-2 links100">
+                            
+                <form action="">
+                    <p uk-margin>
+                        <!-- <button class="uk-button uk-button-secondary uk-button-large copy schwarzebuttons">MEIN PROFIL</button> -->
+                        <a class="uk-button uk-button-secondary copy schwarzebuttons" href="/profile" uk-scroll>MEIN PROFIL</a>
+                    </p>
+                </form>
+
+            </div>
+
+            <div class="uk-width-1-2 rechts60">
+
+                <form action="">
+                    <p uk-margin>
+                        <!-- <button class="uk-button uk-button-primary uk-button-large copy schwarzebuttons" uk-scroll>NEUER EINTRAG</button> -->
+                        <a class="uk-button uk-button-primary copy schwarzebuttons" href="#new" uk-scroll>NEUER EINTRAG</a>
+                    </p>
+                </form>
+
+            </div>
+
+        </div>
+
+        <!-- Beginn der Anzeigen -->
+
+        <% if (typeof entries !== "undefined"){ %>
+
+        <ul class="rechts60 links100 uk-list-divider" uk-accordion>
+
+            <% for (let i = 0; i < entries.length; i++) { %>
+
+            <!--
+            <li>
+
+                <h3 class="uk-accordion-title">Version 1</h3>
+
+                <div class="uk-accordion-content">
+                    <p>
+                        Hey!
+                        <br/><br/>
+                        Ich bin Hans Panzerfaust, 23 Jahre alt und studiere grad Media Systems im 2. Semester. Für ein Games Projekt im Fach Media Game Design suchen mein Team (wir sind drei Leute) und ich jemanden der Lust hat, uns bei unserem Projekt zu unterstützen.
+                        <br/>
+                        Wir haben vor ein MMORPG im Stile von WoW zu machen, nur mit realistischer Grafik und VR optimiert.
+                        <br/>
+                        Bla bla blaaaaaaaaaa
+                        <br/><br/>
+                        <a href="mailto:hans.panzerfaust@haw-hamburg.de" class="uk-button uk-button-text">Mail an Hans schreiben</a>
+                        <br/><br/>
+                    </p>
+                </div>
+
+            </li>
+            -->
+           
+                            
+            <!-- Beginn einer einzelnen Anzeige -->
+
+            <li>
+              
+                <div class="uk-card uk-card-default uk-width-1-1@m uk-accordion-title">
+                    <div class="uk-card-header">
+                        <div class="uk-grid-small uk-flex-middle" uk-grid>
+
+                            <div class="uk-width-auto">
+                                <img class="uk-border-circle" width="40" height="40" src="img/basti.png">
+                            </div>
+
+                            <div class="uk-width-expand">
+                                <h3 class="uk-card-title uk-margin-remove-bottom"><%= entries[i].searchObject %></h3>
+                                <p class="uk-text-meta uk-margin-remove-top uk-margin-remove-bottom"><time datetime="2017-11-19">19. Nov., 2017</time></p>
+                                <p class="uk-text-meta uk-margin-remove-top"><a href="PROFILSEITE" class="uk-button uk-button-text namefarbe">Hans Panzerfaust</a></p>
+                            </div>
+
+                            <form action="<%= '/deleteentries/' + entries[i]._id %>" method="POST">
+                                <button class="uk-button uk-button-danger" type="submit">Remove</button>
+                            </form>
+                            <% } %>
+
+                        </div>
+                    </div>
+                </div>
+                    
+                <div class="uk-card-default uk-width-1-1@m uk-accordion-content uk-margin-remove-top">
+                    <div class="uk-card-body">
+
+                        <p>
+                            <%= entries[i].mainText %>
+                            <br/><br/>
+
+                            <a href="mailto:hans.panzerfaust@haw-hamburg.de" class="uk-button uk-button-text">Mail an Hans schreiben</a>
+                        </p>       
+
+                    </div>
+                </div>
+
+            </li>
+
+            <!-- Ende einer einzelnen Anzeige -->
+
+            <!--
+            <li>
+                                      
+                <div class="uk-width-1-1@m uk-accordion-title">
+                    <div class="uk-card-header">
+                        <div class="uk-grid-small uk-flex-middle" uk-grid>
+
+                            <div class="uk-width-auto">
+                                <img class="uk-border-circle" width="40" height="40" src="img/basti.png">
+                            </div>
+
+                            <div class="uk-width-expand">
+                                <h3 class="uk-card-title uk-margin-remove-bottom">Version 3</h3>
+                                <p class="uk-text-meta uk-margin-remove-top"><time datetime="2017-11-19">19. Nov., 2017</time></p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                                        
+                <div class="uk-width-1-1@m uk-accordion-content uk-margin-remove-top">
+
+                    <div class="uk-card-footer uk-margin-remove-top">
+                        <p>
+                            Hey!
+                            <br/><br/>
+                            Ich bin Hans Panzerfaust, 23 Jahre alt und studiere grad Media Systems im 2. Semester. Für ein Games Projekt im Fach Media Game Design suchen mein Team (wir sind drei Leute) und ich jemanden der Lust hat, uns bei unserem Projekt zu unterstützen.
+                            <br/>
+                            Wir haben vor ein MMORPG im Stile von WoW zu machen, nur mit realistischer Grafik und VR optimiert.
+                            <br/>
+                            Bla bla blaaaaaaaaaa
+                            <br/><br/>
+
+                            <a href="mailto:hans.panzerfaust@haw-hamburg.de" class="uk-button uk-button-text">Mail an Hans schreiben</a>
+                            <br/><br/>
+                        </p>                                                    
+                    </div>
+
+                </div>
+                    
+            </li>
+            -->
+
+        </ul>
+
+        <!-- Ende der Anzeigen -->
+
+        <!-- Anfang neuer Eintrag -->
+        
+        <div class="uk-container uk-container-center uk-margin-top obersuper">
+
+            <hr>
+
+            <h2 id="new">Neue Anfrage erstellen</h2>
+
+            <form class="uk-form-stacked">
+                <table style="width: 100%; display: flex;">
+                    <tr>
+
+                        <td>
+                            
+                            <div class="uk-margin">
+                                <label class="uk-form-label" for="form-stacked-text">Ich suche.. / Wir suchen..</label>
+                                <div class="uk-form-controls uk-inline">
+                                <span class="uk-form-icon" uk-icon="icon: search"></span>
+                                    <input class="uk-input" id="form-stacked-text" type="text" name="searchObject" placeholder="..." required>
+                                </div>
+                            </div>
+            
+                            <div class="uk-margin">
+                                <label class="uk-form-label" for="form-stacked-text">Beschreibung</label>
+                                <div class="uk-form-controls uk-inline">
+                                    <textarea class="uk-textarea" rows="5" placeholder="..."></textarea>
+                                </div>
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        
+                        <td>
+                            <div class="uk-margin">
+                                    
+                            <p uk-margin>
+                                <button class="uk-button uk-button-primary" type="submit" name="submit">absenden</button>
+                                <button class="uk-button uk-button-secondary" type="reset" name="reset">zurücksetzen</button>
+                            </p>
+                                    
+                            </div>
+                        </td>
+                
+                    </tr>
+
+                </table>		
+            </form>
+        </div>
+
+        <!-- Ende neuer Eintrag -->
+                
+        <!-- Ende des Hauptteils -->
+
+        <!-- Beginn des Footer -->
+
+        <footer>
+		
+			<div class="uk-grid uk-contrast derfooter">
+			
+				<div class="uk-width-1-3">
+
+		            <div class="uk-panel">
+	
+		                <img src="img/haw.png" width="150" alt="HAW-Logo" class="logo" />
+	
+		            </div>
+	
+		        </div>
+	
+		        <div class="uk-width-1-3">
+	
+		            <div class="uk-panel">
+	
+		            	<p class="copy"><a class="uk-button uk-button-text" id="nachoben" href="#target" uk-scroll>nach oben</a></p>
+	
+						<p id="copy" class="copy"><br/>&copy; 2017: Moritz, René, Emir &amp; Basti</p>
+	
+						<form action="impressum.html">
+							<p><button class="uk-button uk-button-primary copy">Impressum</button></p>
 						</form>
-						<% } %>
-					</td>
-				</tr>
-			<% } %>
-		</table>
-		<% } %>
-		<h4>Neue Anfrage hinzufügen</h4>
-		<form action="/enternewentry" method="POST">
-			Ich / wir suche/n: <input type="text" name="searchObject"><br/>
-			Beschreibung: <input type="text" name="mainText"><br/>
-			<button type="submit">Absenden</button>
-		</form>
-		<a href="/logout">Abmelden</a>
-		<a href="/content">Zu deinem Profil</a>
+	
+		            </div>
+	
+		        </div>
+	
+		        <div class="uk-width-1-3">
+	
+		            <div class="uk-panel">
+	
+		                <img src="img/monks.png" alt="4Monkeys-Logo" class="logo" />
+	
+		            </div>
+	
+		        </div>
+			
+			</div>
+
+		</footer>
+		
+		<!-- Ende des Footer -->
+
 	</body>
+
 </html>

@@ -257,8 +257,8 @@ app.post('/enternewentry', function(request, response){
 app.post('/deleteentries/:id', (request, response) => {
 	const id = request.params.id;
 	const o_id = new ObjectID(id);
-	
-	db.collection(DB_COLLECTION).remove({'_id': o_id}, (error, result) => {
+
+	db.collection(DB_COLL_ENTRIES).remove({'_id': o_id}, (error, result) => {
 		response.redirect('/board');
     });
 });

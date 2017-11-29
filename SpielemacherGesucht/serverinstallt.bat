@@ -1,0 +1,1 @@
+npm install express express-session tingodb body-parser ejs --save

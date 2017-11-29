@@ -1,5 +1,60 @@
 <!DOCTYPE html>
 
+
+//Von René
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Schwarzes Brett</title>
+	</head>
+	<body>
+		<% if (typeof entries !== "undefined"){ %>
+		<table>
+			<% for (let i = 0; i < entries.length; i++) { %>
+				<tr>
+					<td> <%= entries[i].searchObject %></td>
+					<td> <%= entries[i].mainText %></td>
+					<% if( user == "adm"){ %>
+					<td>
+						<form action="<%= '/deleteentries/' + entries[i]._id %>" method="POST">
+						<button type="submit">Remove</button>
+						</form>
+						<% } %>
+					</td>
+				</tr>
+			<% } %>
+		</table>
+		<% } %>
+		<h4>Neue Anfrage hinzufügen</h4>
+		<form action="/enternewentry" method="POST">
+			Suche: <input type="text" name="searchObject"><br/>
+			Text: <input type="text" name="mainText"><br/>
+			<button type="submit">Absenden</button>
+		</form>
+		<a href="/logout">Abmelden</a>
+		<a href="/content">Zu deinem Profil</a>
+	</body>
+</html>
+
+
+//Ende René
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 
 	<head>

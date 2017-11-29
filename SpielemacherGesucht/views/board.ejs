@@ -1,60 +1,5 @@
 <!DOCTYPE html>
 
-
-//Von René
-
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>Schwarzes Brett</title>
-	</head>
-	<body>
-		<% if (typeof entries !== "undefined"){ %>
-		<table>
-			<% for (let i = 0; i < entries.length; i++) { %>
-				<tr>
-					<td> <%= entries[i].searchObject %></td>
-					<td> <%= entries[i].mainText %></td>
-					<% if( user == "adm"){ %>
-					<td>
-						<form action="<%= '/deleteentries/' + entries[i]._id %>" method="POST">
-						<button type="submit">Remove</button>
-						</form>
-						<% } %>
-					</td>
-				</tr>
-			<% } %>
-		</table>
-		<% } %>
-		<h4>Neue Anfrage hinzufügen</h4>
-		<form action="/enternewentry" method="POST">
-			Suche: <input type="text" name="searchObject"><br/>
-			Text: <input type="text" name="mainText"><br/>
-			<button type="submit">Absenden</button>
-		</form>
-		<a href="/logout">Abmelden</a>
-		<a href="/content">Zu deinem Profil</a>
-	</body>
-</html>
-
-
-//Ende René
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <html>
 
 	<head>
@@ -147,30 +92,6 @@
         <ul class="rechts60 links100 uk-list-divider" uk-accordion>
 
             <% for (let i = 0; i < entries.length; i++) { %>
-
-            <!--
-            <li>
-
-                <h3 class="uk-accordion-title">Version 1</h3>
-
-                <div class="uk-accordion-content">
-                    <p>
-                        Hey!
-                        <br/><br/>
-                        Ich bin Hans Panzerfaust, 23 Jahre alt und studiere grad Media Systems im 2. Semester. Für ein Games Projekt im Fach Media Game Design suchen mein Team (wir sind drei Leute) und ich jemanden der Lust hat, uns bei unserem Projekt zu unterstützen.
-                        <br/>
-                        Wir haben vor ein MMORPG im Stile von WoW zu machen, nur mit realistischer Grafik und VR optimiert.
-                        <br/>
-                        Bla bla blaaaaaaaaaa
-                        <br/><br/>
-                        <a href="mailto:hans.panzerfaust@haw-hamburg.de" class="uk-button uk-button-text">Mail an Hans schreiben</a>
-                        <br/><br/>
-                    </p>
-                </div>
-
-            </li>
-            -->
-           
                             
             <!-- Beginn einer einzelnen Anzeige -->
 
@@ -190,9 +111,10 @@
                                 <p class="uk-text-meta uk-margin-remove-top"><a href="PROFILSEITE" class="uk-button uk-button-text namefarbe">Hans Panzerfaust</a></p>
                             </div>
 
-                            <form action="<%= '/deleteentries/' + entries[i]._id %>" method="POST">
-                                <button class="uk-button uk-button-danger" type="submit">Remove</button>
-                            </form>
+                            <% if( user == "adm"){ %>
+                                <form action="<%= '/deleteentries/' + entries[i]._id %>" method="POST">
+                                    <button class="uk-button uk-button-danger" type="submit">Remove</button>
+                                </form>
                             <% } %>
 
                         </div>
@@ -216,50 +138,11 @@
 
             <!-- Ende einer einzelnen Anzeige -->
 
-            <!--
-            <li>
-                                      
-                <div class="uk-width-1-1@m uk-accordion-title">
-                    <div class="uk-card-header">
-                        <div class="uk-grid-small uk-flex-middle" uk-grid>
-
-                            <div class="uk-width-auto">
-                                <img class="uk-border-circle" width="40" height="40" src="img/basti.png">
-                            </div>
-
-                            <div class="uk-width-expand">
-                                <h3 class="uk-card-title uk-margin-remove-bottom">Version 3</h3>
-                                <p class="uk-text-meta uk-margin-remove-top"><time datetime="2017-11-19">19. Nov., 2017</time></p>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                                        
-                <div class="uk-width-1-1@m uk-accordion-content uk-margin-remove-top">
-
-                    <div class="uk-card-footer uk-margin-remove-top">
-                        <p>
-                            Hey!
-                            <br/><br/>
-                            Ich bin Hans Panzerfaust, 23 Jahre alt und studiere grad Media Systems im 2. Semester. Für ein Games Projekt im Fach Media Game Design suchen mein Team (wir sind drei Leute) und ich jemanden der Lust hat, uns bei unserem Projekt zu unterstützen.
-                            <br/>
-                            Wir haben vor ein MMORPG im Stile von WoW zu machen, nur mit realistischer Grafik und VR optimiert.
-                            <br/>
-                            Bla bla blaaaaaaaaaa
-                            <br/><br/>
-
-                            <a href="mailto:hans.panzerfaust@haw-hamburg.de" class="uk-button uk-button-text">Mail an Hans schreiben</a>
-                            <br/><br/>
-                        </p>                                                    
-                    </div>
-
-                </div>
-                    
-            </li>
-            -->
+            <% } %>
 
         </ul>
+
+        <% } %>
 
         <!-- Ende der Anzeigen -->
 
@@ -271,7 +154,7 @@
 
             <h2 id="new">Neue Anfrage erstellen</h2>
 
-            <form class="uk-form-stacked">
+            <form class="uk-form-stacked" action="/enternewentry" method="POST">
                 <table style="width: 100%; display: flex;">
                     <tr>
 
@@ -288,7 +171,7 @@
                             <div class="uk-margin">
                                 <label class="uk-form-label" for="form-stacked-text">Beschreibung</label>
                                 <div class="uk-form-controls uk-inline">
-                                    <textarea class="uk-textarea" rows="5" placeholder="..."></textarea>
+                                    <textarea class="uk-textarea" rows="5" name="mainText" placeholder="..."></textarea>
                                 </div>
                             </div>
 

@@ -66,7 +66,7 @@
                 <form action="">
                     <p uk-margin>
                         <!-- <button class="uk-button uk-button-secondary uk-button-large copy schwarzebuttons">MEIN PROFIL</button> -->
-                        <a class="uk-button uk-button-secondary copy schwarzebuttons" href="/profile" uk-scroll>MEIN PROFIL</a>
+                        <a class="uk-button uk-button-secondary copy schwarzebuttons" href="<%= '/profiles/' + user._id %>">MEIN PROFIL</a>
                     </p>
                 </form>
 
@@ -91,29 +91,29 @@
 
         <ul class="rechts60 links100 uk-list-divider" uk-accordion>
 
-            <% for (let i = 0; i < entries.length; i++) { %>
+            <% for (let i = entries.length-1; i > 0; i--) { %>
                             
             <!-- Beginn einer einzelnen Anzeige -->
 
             <li>
-              
+            
                 <div class="uk-card uk-card-default uk-width-1-1@m uk-accordion-title">
                     <div class="uk-card-header">
                         <div class="uk-grid-small uk-flex-middle" uk-grid>
 
                             <div class="uk-width-auto">
-                                <img class="uk-border-circle" width="40" height="40" src="img/basti.png">
+                                <img class="uk-border-circle" width="40" height="40" src="<%= entries[i].creator.avatar %>">
                             </div>
 
                             <div class="uk-width-expand">
                                 <h3 class="uk-card-title uk-margin-remove-bottom"><%= entries[i].searchObject %></h3>
-                                <p class="uk-text-meta uk-margin-remove-top uk-margin-remove-bottom"><time datetime="2017-11-19">19. Nov., 2017</time></p>
-                                <p class="uk-text-meta uk-margin-remove-top"><a href="PROFILSEITE" class="uk-button uk-button-text namefarbe">Hans Panzerfaust</a></p>
+                               <!-- <p class="uk-text-meta uk-margin-remove-top uk-margin-remove-bottom"><time datetime="2017-11-19">19. Nov., 2017</time></p>-->
+                                <p class="uk-text-meta uk-margin-remove-top"><a href="<%= /profiles/+ entries[i].creator._id %>" class="uk-button uk-button-text namefarbe"><%= entries[i].creator.firstname + " " + entries[i].creator.lastname %></a></p>
                             </div>
 
-                            <% if( user == "adm"){ %>
+                            <% if( user === "adm" || user._id === entries[i].creator._id ){ %>
                                 <form action="<%= '/deleteentries/' + entries[i]._id %>" method="POST">
-                                    <button class="uk-button uk-button-danger" type="submit">Remove</button>
+                                    <button class="uk-button uk-button-danger" type="submit">Löschen</button>
                                 </form>
                             <% } %>
 
@@ -128,7 +128,7 @@
                             <%= entries[i].mainText %>
                             <br/><br/>
 
-                            <a href="mailto:hans.panzerfaust@haw-hamburg.de" class="uk-button uk-button-text">Mail an Hans schreiben</a>
+                            <a href="mailto:<%= entries[i].creator.email %>@haw-hamburg.de?subject=Anfrage%20zu%20<%= entries[i].searchObject %>" class="uk-button uk-button-text">Mail an <%= entries[i].creator.firstname %> schreiben</a>
                         </p>       
 
                     </div>

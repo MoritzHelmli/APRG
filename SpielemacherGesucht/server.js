@@ -158,7 +158,6 @@ app.post('/enternewusers', function(request, response){
 	//für Absicherung 
 	if(newUemail === "" || newUpassword === "" || newPrename === "" || newSurname === ""){ 
 		console.log("error!");
-		response.render('notification', {'message2':'Alle Felder müssen ausgefüllt werden!'});
 	}
 	else{
 		db.collection(DB_COLL_USERS).findOne({'email': newUemail}, (err, result) => {
@@ -174,12 +173,10 @@ app.post('/enternewusers', function(request, response){
 				db.collection(DB_COLL_USERS).save(document, function(err, result){
 					if (err) return console.log(err);    
 					console.log('saved to DB');
-					response.render('notification', {'message2':'Sie haben den User erfolgreich hinzugefügt!'});
 				});
 			}	
 			else{
 				console.log ("Diese E-Mail wird bereits verwendet!");
-				response.render('notification', {'message2':'Diese E-Mail ist bereits vorhanden!'});
 			}
 			
 			db.collection(DB_COLL_USERS).find().toArray(function (err, result) {

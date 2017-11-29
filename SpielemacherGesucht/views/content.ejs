@@ -6,11 +6,12 @@
 	<body>
 		<% if( user !== "adm") { %>
 			<h2>Willkommen <%= user.firstname %> <%= user.lastname %>!</h2>
+			<a href = "<%= '/profiles/' + user._id %>"> Ihr Profil </a>
 		<% } else { %>
 			<h2>Willkommen Admin!</h2>
 			<a href="/administer">User verwalten</a>
 		<% } %>
-			
+			  <a href="/board">Schwarzes Brett</a>
         <a href="/logout">Abmelden</a>
 
 	</body>

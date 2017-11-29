@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+
+		<meta charset="utf-8" />
+		<meta name="author" content="Moritz, René, Emir, Basti" />
+		<script src="js/jquery.js"></script>
+		<script src="js/uikit.js"></script>
+		<script src="js/uikit-icons.js"></script>
+		<link href="css/uikit.css" rel="StyleSheet">
+		<link href="css/style.css" rel="StyleSheet">
+		<!-- <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico"> --> <!-- ICON EINFÜGEN -->
+		<title>Projekt: Spielemacher gesucht!</title>
+
+	</head>
+
+	<body>
+
+		<!-- SPRACHEN VERLINKEN -->
+		<div class="uk-container uk-container-expand" style="background-color: #404040;">
+			<p id="sprachen">Deutsch | English</p>
+		</div>
+
+		<!-- Beginn der Navigation  -->
+
+		<nav class="uk-navbar-container" uk-navbar>
+
+			<div class="uk-navbar-left">
+
+				<ul class="uk-navbar-nav">
+
+					<li id="titel"><b>Projekt: Spielemacher gesucht!</b></li>
+
+				</ul>
+
+			</div>
+
+			<!-- ACTIVE UND HOVER FARBE ANPASSEN -->
+
+			<div class="uk-navbar-right">
+
+				<ul class="uk-navbar-nav rechts60">
+
+					<li><a href="/">Home</a></li>
+					<li><a href="/board">Schwarzes Brett</a></li>
+					<li><a href="kontakt.html">Kontakt</a></li>
+					<li class="uk-active"><a href="personen.html">Personen</a></li>
+					<li><a href="/login"><b>Login</b></a></li>
+
+				</ul>
+
+			</div>
+
+		</nav>
+		
+        <!-- Ende der Navigation -->
+        
+        <!-- Beginn des Hauptteils -->
+                
+        <div class="uk-container uk-container-center uk-margin-top">
+                
+            <header>
+                <h2>Das Team</h2>
+            </header>
+
+            <table>
+
+                <tr>
+					<td class="personen">
+						<img src="img/mo.png" alt="Mo" />
+					</td>
+
+					<td class="personen">
+						<img src="img/emir.png" alt="Emir" />
+					</td>
+
+					<td class="personen">
+						<img src="img/cro.png" alt="René" />
+					</td>
+
+					<td class="personen">
+						<img src="img/basti.png" alt="Basti" />
+					</td>
+				</tr>
+				
+				<tr>
+					<td class="personen">
+						<div class="uk-inline">
+							<button class="uk-button uk-button-default personenbuttons" type="button">Mo</button>
+							<div uk-drop="mode: click; pos: bottom-center">
+								<div class="uk-card uk-card-body uk-card-default"><i>"Hinter dir! Ein dreiköpfiger Affe!"</i></div>
+							</div>
+						</div>
+					</td>
+
+					<td class="personen">
+						<div class="uk-inline">
+							<button class="uk-button uk-button-default personenbuttons" type="button">Emir</button>
+							<div uk-drop="mode: click; pos: bottom-center">
+								<div class="uk-card uk-card-body uk-card-default"><i>"lalala"</i></div>
+							</div>
+						</div>
+					</td>
+						
+					<td class="personen">
+						<div class="uk-inline">
+							<button class="uk-button uk-button-default personenbuttons" type="button">René</button>
+							<div uk-drop="mode: click; pos: bottom-center">
+								<div class="uk-card uk-card-body uk-card-default"><i>"Ich wünschte, mich würden mehr Leute Cro nennen.."</i></div>
+							</div>
+						</div>
+					</td>
+	
+					<td class="personen">
+						<div class="uk-inline">
+							<button class="uk-button uk-button-default personenbuttons" type="button">Basti</button>
+							<div uk-drop="mode: click; pos: bottom-center">
+								<div class="uk-card uk-card-body uk-card-default"><i>"Neben mir! 3 Affen!"</i></div>
+							</div>
+						</div>
+					</td>				
+				
+				</tr>
+
+				<tr>
+
+					<td>
+						<br/>
+						geb. 1891
+						<br/>
+						Sternzeichen: Jungfrau
+						<br/>
+						Schuhgröße: 44
+					</td>
+
+					<td>
+						<br/>
+						geb. 1998
+						<br/>
+						Sternzeichen: Löwe
+						<br/>
+						Schuhgröße: 43
+					</td>
+
+					<td>
+						<br/>
+						geb. 1996
+						<br/>
+						Sternzeichen: Löwe
+						<br/>
+						Schuhgröße: 42
+					</td>
+
+					<td>
+						<br/>
+						geb. 1996
+						<br/>
+						Sternzeichen: Widder
+						<br/>
+						Schuhgröße: 44
+					</td>
+
+				</tr>
+
+            </table>
+                
+        </div>
+                
+        <!-- Ende des Hauptteils -->
+
+        <!-- Beginn des Footer -->
+
+        <footer>
+		
+			<div class="uk-grid uk-contrast derfooter">
+			
+				<div class="uk-width-1-3">
+
+		            <div class="uk-panel">
+	
+		                <img src="img/haw.png" width="150" alt="HAW-Logo" class="logo" />
+	
+		            </div>
+	
+		        </div>
+	
+		        <div class="uk-width-1-3">
+	
+		            <div class="uk-panel">
+	
+						<p class="copy"><a class="uk-button uk-button-text" id="nachoben" href="#target" uk-scroll>nach oben</a></p>
+	
+						<p id="copy" class="copy"><br/>&copy; 2017: Moritz, René, Emir &amp; Basti</p>
+	
+						<form action="impressum.html">
+							<p><button class="uk-button uk-button-primary copy">Impressum</button></p>
+						</form>
+	
+		            </div>
+	
+		        </div>
+	
+		        <div class="uk-width-1-3">
+	
+		            <div class="uk-panel">
+	
+		                <img src="img/monks.png" alt="4Monkeys-Logo" class="logo" />
+	
+		            </div>
+	
+		        </div>
+			
+			</div>
+
+		</footer>
+		
+		<!-- Ende des Footer -->
+
+	</body>
+
+</html>

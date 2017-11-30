@@ -1,26 +1,30 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>User-Profil</title>
+		<title><%= user.firstname %> <%= user.lastname %></title>
 	</head>
 	<body>
-			<h1><%= user.firstname %> <%= user.lastname %>'s Profil</h1>
+			<h1><%= user.firstname %> <%= user.lastname %></h1>
 			<p>
-					Profilbild: <img src= <%= user.avatar %> alt="Smiley face" height="42" width="42">
-					<form action="<%= '/avatar/' + user._id %>" method="POST">
-					Link zum gewünschten Profilbild: <input type="text" name="avatarLink">
-					<button type="submit">Profilbild ändern</button>
-					</form>
+					<img src= <%= user.avatar %> alt="Profilbild" height="42" width="42">
+					
+					<% if(user._id == viewuser._id){ %>
+						<form action="<%= '/avatar/' + user._id %>" method="POST">
+						Link zum gewünschten Profilbild: <input type="text" name="avatarLink">
+						<button type="submit">Profilbild ändern</button>
+						</form>
+						<form action="<%= '/edit/' + user._id %>" method="POST">
+							<textarea name = "description"/>
+								<%= user.description %>
+							</textarea>
+							<button type="submit">Beschreibung ändern</button>
+						</form>
+					<% } %>
 					Vorname: <%= user.firstname %><br/>
 					Nachname: <%= user.lastname %><br/>
 					E-Mail: <%= user.email %>@haw-hamburg.de<br/>
-					Beschreibung:
-					<form action="<%= '/edit/' + user._id %>" method="POST">
-						<textarea name = "description" cols = "25" rows = "10"/>
-							<%= user.description %>
-				  	</textarea>
-						<button type="submit">Beschreibung ändern</button>
-					</form>
+					Beschreibung: <%= user.description %>
+					
 			</p>
 	<b><a href="javascript:history.back()">Zurück</a></b>
 	</body>

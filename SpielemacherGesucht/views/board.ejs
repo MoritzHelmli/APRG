@@ -91,7 +91,7 @@
 
         <ul class="rechts60 links100 uk-list-divider" uk-accordion>
 
-            <% for (let i = entries.length-1; i > 0; i--) { %>
+            <% for (let i = entries.length-1; i > -1; i--) { %>
                             
             <!-- Beginn einer einzelnen Anzeige -->
 
@@ -107,7 +107,6 @@
 
                             <div class="uk-width-expand">
                                 <h3 class="uk-card-title uk-margin-remove-bottom"><%= entries[i].searchObject %></h3>
-                               <!-- <p class="uk-text-meta uk-margin-remove-top uk-margin-remove-bottom"><time datetime="2017-11-19">19. Nov., 2017</time></p>-->
                                 <p class="uk-text-meta uk-margin-remove-top"><a href="<%= /profiles/+ entries[i].creator._id %>" class="uk-button uk-button-text namefarbe"><%= entries[i].creator.firstname + " " + entries[i].creator.lastname %></a></p>
                             </div>
 

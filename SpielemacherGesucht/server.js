@@ -91,7 +91,7 @@ app.get('/content', function(request, response){
 	}
 });
 
-//PROFIL-PAGE nach dem Tutorial von Ian Schoonover: https://www.youtube.com/watch?v=6ar77jZ_ajc
+//PROFIL-PAGE angelehnt an das Tutorial von Ian Schoonover: https://www.youtube.com/watch?v=6ar77jZ_ajc
 app.get('/profiles/:id', (request, response) => {
 	const id = request.params.id;
 	const o_id = new ObjectID(id);

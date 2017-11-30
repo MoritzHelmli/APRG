@@ -231,14 +231,12 @@ app.get('/board', function(request, response){
 app.post('/enternewentry', function(request, response){
 	const newSearchObject = request.body['searchObject'];
 	const newMainText = request.body['mainText'];
-	//const newCreator = request.body['user']
-	//const newCreator = der Anfragenersteller;
+	const newCreator = request.session['user']
 
 	const document = {
 		'searchObject': newSearchObject,
 		'mainText': newMainText,
-		// 'creator' : newCreator//austesten
-		//'creator': der Anfragenersteller,
+		'creator' : newCreator
 	}
 	
 	db.collection(DB_COLL_ENTRIES).save(document, function(err, result){
@@ -249,8 +247,7 @@ app.post('/enternewentry', function(request, response){
 
 	db.collection(DB_COLL_ENTRIES).find().toArray(function(err, result){
 		response.render('board', {'entries': result, 'user': request.session['user']});
-		
-	});    //response.render('board');
+	});
 });
 
 

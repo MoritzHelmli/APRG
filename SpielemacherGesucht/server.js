@@ -98,7 +98,6 @@ app.get('/profiles/:id', (request, response) => {
 	
 	db.collection(DB_COLL_USERS).findOne({'_id': o_id}, (err, foundUser) => {
 		if(err){ return console.log(err);}
-		console.log(foundUser);
 		response.render('profile', {'user': foundUser, 'viewuser': request.session['user']});
 	});
 });
@@ -157,7 +156,7 @@ app.post('/enternewusers', function(request, response){
 	const newUemail = request.body['email'];
 	//für Absicherung 
 	if(newUemail === "" || newUpassword === "" || newPrename === "" || newSurname === ""){ 
-		console.log("error!");
+		console.log("Bitte alle Felder ausfüllen!");
 	}
 	else{
 		db.collection(DB_COLL_USERS).findOne({'email': newUemail}, (err, result) => {
@@ -266,4 +265,5 @@ app.post('/deleteentries/:id', (request, response) => {
 app.get('/logout', function(request, response){
 	delete request.session['authenticated'];
 	response.redirect('/');
+	console.log("Erfolgreich abgemeldet.");
 });

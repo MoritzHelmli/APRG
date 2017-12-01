@@ -63,29 +63,13 @@
 
 		</div>
 
-		<!--
-			------------------
-		-->
-
-		<a href="profil.html" style="font-size: 1000"><b>PROFIL</b></a>
-
-		<!--
-			------------------
-		-->
-
 		<!-- Text - Hauptseite -->
 
 		<div class="uk-container uk-container-center uk-margin-top">
 
 			<header>
-				<h2><%= message%></h2>
-				
-				<h2>Das Ziel dieser Seite:</h2>
+				<h2>Das Ziel dieser Seite: Spielemacher zusammenbringen.</h2>
 			</header>
-
-			<p class="grau61">
-					Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-			</p>
 
 		</div>
 
@@ -93,10 +77,10 @@
 
 		<div class="uk-container uk-container-center uk-margin-top">
 					
-			<p class="vierzehn grau61 top">
+			<p class="vierzehn grau61">
 				Du bist auf der Suche nach einem spannenden Projekt? 
 				<br/>
-				Oder hast selbst eine Idee die Du umsetzen willst, Dir fehlt aber das Team?
+				Oder hast selbst eine Idee, die Du umsetzen willst, Dir fehlt aber das Team?
 				<br/><br/>
 				<b>Dann registriere Dich jetzt!</b>	
 			</p>
@@ -104,17 +88,18 @@
 		</div>
 
 		<div class="uk-container uk-container-center uk-margin-top">
-			<form class="uk-form-stacked">
-				<table>
+			<form class="uk-form-stacked" action="https://www.dw-formmailer.de/" method="post"> <!-- Account bei dw-formmailer anlegen! -->
+		   
+				<table class="links100">
 					<tr>
 
-						<td class="links100">
-							
+						<td>
+								
 							<div class="uk-margin">
 								<label class="uk-form-label" for="form-stacked-text">Vorname</label>
 								<div class="uk-form-controls uk-inline">
 									<span class="uk-form-icon" uk-icon="icon: user"></span>
-									<input class="uk-input" id="form-stacked-text" type="text" placeholder="...">
+									<input name="firstname" class="uk-input" id="form-stacked-text" type="text" placeholder="...">
 								</div>
 							</div>
 
@@ -122,80 +107,37 @@
 								<label class="uk-form-label" for="form-stacked-text">Nachname</label>
 								<div class="uk-form-controls uk-inline">
 									<span class="uk-form-icon" uk-icon="icon: user"></span>
-									<input class="uk-input" id="form-stacked-text" type="text" placeholder="...">
+									<input name="lastname" class="uk-input" id="form-stacked-text" type="text" placeholder="...">
 								</div>
 							</div>
-							
-							<div class="uk-margin">
-								<label class="uk-form-label" for="form-stacked-select">Studiengang</label>
-								<div class="uk-form-controls">
-									<select class="uk-select" id="form-stacked-select">
-										<option><i>...</i></option>
-										<option>Media Systems (B.Sc.)</option>
-										<option>Medientechnik (B. Sc.)</option>
-										<option>Games - Master (M.A.)</option>
-										<option>Illustration (B.A.)</option>
-										<option>Kommunikationsdesign (B.A.)</option>
-										<option>Design (M.A.)</option>
-									</select>
-								</div>
-							</div>
-
-							<div class="uk-margin">
-								<label class="uk-form-label" for="form-stacked-text">Fachsemester</label>
-								<div class="uk-form-controls uk-inline">
-									<span class="uk-form-icon" uk-icon="icon: calendar"></span>
-									<input class="uk-input" id="form-stacked-text" type="text" placeholder="...">
-								</div>
-							</div>
-
-						</td>
-
-						<td class="links100">
-							
-							<div class="uk-margin">
-								<label class="uk-form-label" for="form-stacked-text">HAW - Mailadresse</label>
-								<div class="uk-form-controls uk-inline">
-									<span class="uk-form-icon" uk-icon="icon: mail"></span>
-									<input class="uk-input" id="form-stacked-text" type="text" placeholder="...">
-								</div>
-							</div>
-			
+					
 							<div class="uk-margin">
 								<label class="uk-form-label" for="form-stacked-text">Passwort</label>
 								<div class="uk-form-controls uk-inline">
 									<span class="uk-form-icon" uk-icon="icon: lock"></span>
-									<input class="uk-input" id="form-stacked-text" type="text" placeholder="...">
+									<input name="password" class="uk-input" id="form-stacked-text" type="text" placeholder="...">
 								</div>
 							</div>
-
+		
 							<div class="uk-margin">
-								<label class="uk-form-label" for="form-stacked-text">Passwort wiederholen</label>
+								<label class="uk-form-label" for="form-stacked-text">HAW - Mailadresse<br/>(bitte <b>ohne</b> @haw-hamburg.de angeben)</label>
 								<div class="uk-form-controls uk-inline">
-									<span class="uk-form-icon" uk-icon="icon: lock"></span>
-									<input class="uk-input" id="form-stacked-text" type="text" placeholder="...">
+									<span class="uk-form-icon" uk-icon="icon: mail"></span>
+									<input name="mail" class="uk-input" id="form-stacked-text" type="text" placeholder="...">
 								</div>
 							</div>
-
-							<div class="uk-margin">
-								<label class="uk-form-label" for="form-stacked-text">Avatarbild (Link)</label>
-								<div class="uk-form-controls uk-inline">
-									<span class="uk-form-icon" uk-icon="icon: link"></span>
-									<input class="uk-input" id="form-stacked-text" type="text" placeholder="...">
-								</div>
-							</div>
-
+		
 						</td>
 
 					</tr>
 
 					<tr>
 
-						<td class="links100">
+						<td>
 
 							<div class="uk-margin">			
 								<p uk-margin>
-									<button class="uk-button uk-button-primary" type="submit" name="submit">senden</button>
+									<button class="uk-button uk-button-primary" type="submit" name="submit">registrieren</button>
 									<button class="uk-button uk-button-secondary" type="reset" name="reset">zurücksetzen</button>
 								</p>			
 							</div>
@@ -203,8 +145,13 @@
 						</td>
 
 					</tr>
-				</table>		
+				</table>
+			   
 			</form>
+
+			<p class="vierzehn grau61">
+				<i>Sobald wir Dich registriert haben, bekommst Du eine Bestätigungsmail von uns!</i>
+			</p>
 		</div>
 
 		<!-- Ende des Hauptteils -->

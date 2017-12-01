@@ -62,13 +62,24 @@
         <div class="uk-grid">
 
             <div class="uk-width-1-2 links100">
+
+                <% if( user !== "adm") { %>
                             
-                <form action="">
-                    <p uk-margin>
-                        <!-- <button class="uk-button uk-button-secondary uk-button-large copy schwarzebuttons">MEIN PROFIL</button> -->
-                        <a class="uk-button uk-button-secondary copy schwarzebuttons" href="<%= '/profiles/' + user._id %>">MEIN PROFIL</a>
-                    </p>
-                </form>
+                    <form action="">
+                        <p uk-margin>
+                            <a class="uk-button uk-button-secondary copy schwarzebuttons" href="<%= '/profiles/' + user._id %>">MEIN PROFIL</a>
+                        </p>
+                    </form>
+
+                <% } else { %>
+
+                    <form action="">
+                        <p uk-margin>
+                            <a class="uk-button uk-button-secondary copy schwarzebuttons" href="/content">CONTENT PAGE</a>
+                        </p>
+                    </form>
+
+                <% } %>
 
             </div>
 
@@ -76,7 +87,6 @@
 
                 <form action="">
                     <p uk-margin>
-                        <!-- <button class="uk-button uk-button-primary uk-button-large copy schwarzebuttons" uk-scroll>NEUER EINTRAG</button> -->
                         <a class="uk-button uk-button-primary copy schwarzebuttons" href="#new" uk-scroll>NEUER EINTRAG</a>
                     </p>
                 </form>

@@ -1,8 +1,4 @@
-/* --- APRG --- */
-
 /* ---------- SPEZIFISCHES ---------- */
-
-/* Titel */
 
 #titel {
 	padding-left: 100px;
@@ -54,6 +50,9 @@
 	color: #5ECD9B !important;
 }
 
+.tabrechts {
+	padding-right: 10px;
+}
 
 
 /* fonts */
@@ -72,9 +71,6 @@
 	font-family: 'monster';
 	src: url:('../fonts/montserrat.ttf') format('truetype');
 }
-             
-             
-/* ---------- SPEZIFISCHES ---------- */
 
 
 /* NavBar */
@@ -134,19 +130,10 @@ footer {
 
 /* Kontaktformular */
 
-#kontakt {
-	margin: 30px;
-	margin-bottom: 50px;
-}
-
 form {
 	padding: 30px;
 	padding-top: 50px;
 	padding-bottom: 50px;
-}
-
-.cover {
-	height: 300px;
 }
 
 
@@ -164,80 +151,6 @@ form {
 }
 
 
-
-
-pre {
-	padding-left: 1px;
-}
-
-.obenunten {
-	padding-top: 20px;
-	padding-bottom: 20px;
-}
-
-.oben {
-	padding-top: 20px;
-}
-
-.unten {
-	padding-botom: 20px;
-	margin-bottom: 20px;
-}
-
-.top {
-	padding-top: 30px;
-}
-
-.bot {
-	padding-bottom: 30px;
-}
-
-.super {
-	padding-top: 50px;
-	padding-bottom: 50px;
-}
-
-.obersuper {
-	padding-top: 50px;
-	margin-top: 50px;
-}
-
-.untersuper {
-	padding-bottom: 50px;
-	margin-bottom: 50px;
-}
-
-.lefthandside {
-	padding-left: 10px;
-}
-
-.eng {
-	margin-left: 50px;
-	margin-right: 50px;
-}
-
-.all5 {
-	padding: 5px;
-}
-
-.20rechts {
-	padding-right: 20px !important;
-}
-
-/* Ausrichtung */
-
-.mittig {
-	text-align: center;
-}
-
-.left-float {
-	float: left;
-}
-
-.right-float {
-	float: right;
-}
-
 /* Schrift */
 
 .zwölf {
@@ -248,17 +161,6 @@ pre {
 	font-size: 14pt;
 }
 
-.important {
-	color: red;
-	font-size: 12pt;
-}
-
 .grau61 {
 	color: #616161 !important;
-}
-
-.Zitat {
-	font-family: Georgia;
-	color: #A6A6A6;
-	text-align: center;
 }

@@ -1,31 +1,227 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+
 <html>
+
 	<head>
+
+		<meta charset="utf-8" />
+		<meta name="author" content="Moritz, René, Emir, Basti" />
+		<script src="../js/jquery.js"></script>
+		<script src="../js/uikit.js"></script>
+		<script src="../js/uikit-icons.js"></script>
+		<link href="../css/uikit.css" rel="StyleSheet">
+		<link href="../css/style.css" rel="StyleSheet">
+		<!-- <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico"> --> <!-- ICON EINFÜGEN -->
 		<title><%= user.firstname %> <%= user.lastname %></title>
+
 	</head>
+
 	<body>
-			<h1><%= user.firstname %> <%= user.lastname %></h1>
-			<p>
-					<img src= <%= user.avatar %> alt="Profilbild" height="42" width="42">
-					
-					<% if(user._id == viewuser._id){ %>
-						<form action="<%= '/avatar/' + user._id %>" method="POST">
-						Link zum gewünschten Profilbild: <input type="text" name="avatarLink">
-						<button type="submit">Profilbild ändern</button>
+
+		<!-- SPRACHEN VERLINKEN -->
+		<div class="uk-container uk-container-expand" style="background-color: #404040;">
+			<p id="sprachen">Deutsch | English</p>
+		</div>
+
+		<!-- Beginn der Navigation  -->
+
+		<nav class="uk-navbar-container" uk-navbar>
+
+			<div class="uk-navbar-left">
+
+				<ul class="uk-navbar-nav">
+
+					<li id="titel"><b>Projekt: Spielemacher gesucht!</b></li>
+
+				</ul>
+
+			</div>
+
+			<!-- ACTIVE UND HOVER FARBE ANPASSEN -->
+
+			<div class="uk-navbar-right">
+
+				<ul class="uk-navbar-nav rechts60">
+
+					<li><a href="/">Home</a></li>
+					<li><a href="/board">Schwarzes Brett</a></li>
+					<li><a href="../kontakt.html">Kontakt</a></li>
+					<li><a href="../personen.html">Personen</a></li>
+					<li><a href="/login"><b>Login</b></a></li>
+
+				</ul>
+
+			</div>
+
+		</nav>
+		
+        <!-- Ende der Navigation -->
+        
+        <!-- Beginn Hauptteil -->
+
+		<div class="uk-container uk-container-center uk-margin-top">
+
+            <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+
+                <div class="uk-card-media-left uk-cover-container">
+                    <img src="<%= user.avatar %>" alt="Profilbild" uk-cover>
+                    <canvas width="600" height="400"></canvas>
+                </div>
+
+                <div>
+                    <div class="uk-card-body">
+                        <h3 class="uk-card-title"><%= user.firstname %> <%= user.lastname %></h3>
+
+                        <table>
+                            <tr>
+                                <td>
+                                    HAW-Mail:
+                                </td>
+                                <td class="profil">
+                                    <%= user.email %>@haw-hamburg.de
+                                </td>
+							</tr>
+							
+							<tr>
+								<td>
+									<br/><br/>
+								</td>
+							</tr>
+							
+							<% if(user._id == viewuser._id){ %>
+
+								<tr>
+									<form action="<%= '/avatar/' + user._id %>" method="POST">
+										<td>
+											Link zum gewünschten Profilbild:
+										</td>
+
+										<td class="profil">
+											<div class="uk-form-controls uk-inline">
+												<span class="uk-form-icon" uk-icon="icon: happy"></span>
+												<input name="avatarLink" class="uk-input" id="form-stacked-text" type="text" placeholder="...">
+											</div>
+										</td>
+									</tr>
+
+									<tr>
+										<td>
+											<button class="uk-button uk-button-primary" type="submit" name="submit">speichern</button>
+										</td>
+									</form>
+								</tr>
+
+								<tr>
+									<form action="<%= '/edit/' + user._id %>" method="POST">
+										<td>
+											Beschreibung ändern:
+										</td>
+
+										<td class="profil">
+											<textarea name="description" class="uk-textarea" rows="5" placeholder="...">
+												<%= user.description %>
+											</textarea>
+										</td>
+									</tr>
+
+									<tr>
+										<td>
+											<button class="uk-button uk-button-primary" type="submit" name="submit">speichern</button>
+										</td>
+									</form>
+								</tr>
+													
+									<!--<form action="<%= '/avatar/' + user._id %>" method="POST">
+										Link zum gewünschten Profilbild: <input type="text" name="avatarLink">
+										<button type="submit">Profilbild ändern</button>
+									</form>
+
+									<form action="<%= '/edit/' + user._id %>" method="POST">
+										<textarea name = "description"/>
+											<%= user.description %>
+										</textarea>
+										<button type="submit">Beschreibung ändern</button>
+									</form> -->
+
+							<% } %>
+
+                        </table>
+                    </div>
+                </div>
+
+                <!--
+                <div class="uk-card-footer uk-child-width-1-1@s">
+                    <p>Beschreibung:</p>
+                    <p class="profil">
+                        Hola! Yo soy Carlos. Mi nombre es mi nombre porque yo soy car los.<br/>
+                        ay ay ay
+                    </p>
+                </div>
+            -->
+
+            </div>
+
+            <p>Beschreibung:</p>
+            <p class="profil">
+				<%= user.description %>
+            </p>
+
+		</div>
+		
+		<form action="">
+			<a class="uk-button uk-button-danger" style="float: right;" href="/logout">ABMELDEN</a>
+		</form>
+
+        <!-- Ende Hauptteil -->
+
+        <!-- Beginn des Footer -->
+
+        <footer>
+		
+			<div class="uk-grid uk-contrast derfooter">
+			
+				<div class="uk-width-1-3">
+
+		            <div class="uk-panel">
+	
+		                <img src="../img/haw.png" width="150" alt="HAW-Logo" class="logo" />
+	
+		            </div>
+	
+		        </div>
+	
+		        <div class="uk-width-1-3">
+	
+		            <div class="uk-panel">
+	
+						<p class="copy"><a class="uk-button uk-button-text" id="nachoben" href="#target" uk-scroll>nach oben</a></p>
+	
+						<p id="copy" class="copy"><br/>&copy; 2017: Moritz, René, Emir &amp; Basti</p>
+	
+						<form action="../impressum.html">
+							<p><button class="uk-button uk-button-primary copy">Impressum</button></p>
 						</form>
-						<form action="<%= '/edit/' + user._id %>" method="POST">
-							<textarea name = "description"/>
-								<%= user.description %>
-							</textarea>
-							<button type="submit">Beschreibung ändern</button>
-						</form>
-					<% } %>
-					Vorname: <%= user.firstname %><br/>
-					Nachname: <%= user.lastname %><br/>
-					E-Mail: <%= user.email %>@haw-hamburg.de<br/>
-					Beschreibung: <%= user.description %>
-					
-			</p>
-	<b><a href="javascript:history.back()">Zurück</a></b>
+	
+		            </div>
+	
+		        </div>
+	
+		        <div class="uk-width-1-3">
+	
+		            <div class="uk-panel">
+	
+		                <img src="../img/monks.png" alt="4Monkeys-Logo" class="logo" />
+	
+		            </div>
+	
+		        </div>
+			
+			</div>
+
+		</footer>
+		
+		<!-- Ende des Footer -->
+
 	</body>
+
 </html>
